@@ -1,0 +1,70 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width')
+    title MP theme
+    base(href='/')
+    link(rel='stylesheet', type='text/css', href='css/main.min.css')
+  body
+    input.tunicate__controller#tunicate__controller(type="checkbox")
+    section.tunicate__side-bar
+      .company-logo
+        img.company-logo__image(src="http://placehold.it/20x20")
+        span.company-logo__name Company name
+
+      nav.sidebar-menu
+        .sidebar-menu__item
+          a.sidebar-menu__link(href='')
+            span.sidebar-menu__icon.glyphicon.glyphicon-home
+            span.sidebar-menu__link-text Home
+        - for (var i=1; i < 10; i++)
+          .sidebar-menu__item
+            a.sidebar-menu__link(href='javascript:;', id='collapse-page#{i}', data-toggle='collapse',
+            data-target='#collapse-page#{i}+nav')
+              span.sidebar-menu__link-text Страница #{i}
+              span.caret.sidebar-menu__caret
+            nav.sidebar-menu.collapse
+              .sidebar-menu__item
+                a.sidebar-menu__link(href='')
+                  span.sidebar-menu__link-text Подстраница
+              .sidebar-menu__item
+                a.sidebar-menu__link(href='javascript:;', id='collapse-undpage#{i}', data-toggle='collapse',
+                data-target='#collapse-undpage#{i}+nav')
+                  span.sidebar-menu__link-text Страница с подменю #{i}
+                  span.caret.sidebar-menu__caret
+                nav.sidebar-menu.collapse
+                  .sidebar-menu__item
+                    a.sidebar-menu__link(href='')
+                      span.sidebar-menu__link-text Подстраница
+    main.tunicate
+      .content
+        nav.navbar.navbar-default.container-fluid
+          .navbar-header
+            label.tunicate__manipulator.navbar-brand.glyphicon.glyphicon-menu-hamburger(for="tunicate__controller")
+          ul.pull-left.breadcrumb(style='margin: 0;')
+            li
+              a(href='/site/index')
+                span.glyphicon.glyphicon-home
+            li.active Страны
+          .nav.navbar-nav.navbar-right
+            li
+              a.dropdown-toggle(href='javascript:;', data-toggle='dropdown', aria-expanded='false')
+                | admin
+                span.caret
+              ul.dropdown-menu
+                li
+                  form(action='', method='post')
+                    button.btn.btn-link.logout(type='submit')
+                      span.glyphicon.glyphicon-log-out
+                      |  Logout
+
+        .container-fluid
+          .page-header
+            h1 Main page
+      footer.footer
+        .container-fluid
+          |© Company name 2017
+    script(src='js/jquery.min.js')
+    script(src='js/bootstrap.min.js')
+    script(src='js/main.min.js')

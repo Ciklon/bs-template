@@ -1,0 +1,66 @@
+html,
+body {
+  height: 100%;
+  //background: @gray-dark;
+  background: darken(@brand-primary, 10%);
+}
+
+.content {
+  min-height: calc(~"100vh - 30px");
+}
+
+.tunicate {
+  position: relative;
+  margin: 0 0 0 230px;
+  min-height: 100vh;
+  transition: margin .3s linear;
+  background: @body-bg;
+
+  &__side-bar {
+    float: left;
+    width: 230px;
+    margin-right: -230px;
+    color: #fff;
+    vertical-align: top;
+  }
+
+  &__manipulator {
+    margin: 0;
+  }
+
+  &__controller {
+    display: none;
+    &:checked ~ .tunicate {
+      margin-left: 0;
+    }
+  }
+}
+
+.company-logo {
+  display: block;
+  padding: @padding-base-vertical @padding-base-horizontal;
+  height: @navbar-height;
+  font-size: floor(@font-size-base * 1.28571429);
+  line-height: @line-height-computed;
+  margin: 0 0 20px;
+  background: rgba(255, 255, 255, 0.2);
+  text-shadow: 0 0 1px #000;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+  &__image {
+    display: inline-block;
+    max-height: 20px;
+    vertical-align: top;
+    margin: 0 8px 0 0;
+  }
+}
+
+.footer {
+  width: 100%;
+  height: 30px;
+  padding: 5px 0 0;
+  color: #8a8a8a;
+  background: #f9f9f9;
+}

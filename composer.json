@@ -1,0 +1,12 @@
+{
+    "name": "freimaurerei/bs-template",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Losferite",
+            "email": "meiolow@gmail.com"
+        }
+    ],
+    "require": {}
+}
