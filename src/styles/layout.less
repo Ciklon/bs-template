@@ -13,7 +13,7 @@ body {
   position: relative;
   margin: 0 0 0 230px;
   min-height: 100vh;
-  transition: margin .3s linear;
+  transition: margin .3s linear, transform .3s linear;
   background: @body-bg;
 
   &__side-bar {
@@ -33,6 +33,10 @@ body {
     &:checked ~ .tunicate {
       margin-left: 0;
     }
+  }
+  .navbar-nav>li>a {
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 }
 
@@ -57,10 +61,63 @@ body {
   }
 }
 
+.navbar {
+  .breadcrumb {
+    li {
+      display: inline-block;
+      max-width: 200px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+}
+
 .footer {
   width: 100%;
   height: 30px;
   padding: 5px 0 0;
   color: #8a8a8a;
   background: #f9f9f9;
+}
+
+@media (max-width: @screen-sm) {
+  .navbar-header {
+    float: left;
+  }
+  .navbar-right {
+    float: right;
+    margin: -1px 0 0;
+  }
+  .navbar .navbar-right .dropdown-menu {
+    left: auto;
+    right: 0;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 0;
+  }
+
+
+  .tunicate {
+    &__controller {
+      display: none;
+      & ~ .tunicate {
+        margin-left: 0;
+        transform: translateX(0);
+      }
+      &:checked ~ .tunicate {
+        transform: translateX(230px);
+      }
+    }
+  }
+
+
+  .navbar {
+    .breadcrumb {
+      li {
+        max-width: 100px;
+      }
+    }
+  }
 }
